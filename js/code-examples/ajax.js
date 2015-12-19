@@ -10,7 +10,7 @@ $.ajax({
     }
 }).done(function (response) {
     console.debug('address have been loaded:', response);
-    // in this case response is directly entire contact
+    // in this case response is directly entire person
     console.info(response.name + ' - ' + response.phone);
 });
 

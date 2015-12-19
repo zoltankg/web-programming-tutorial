@@ -33,12 +33,12 @@ function showContacts(contacts) {
 
 function removeContact(id) {
     $.ajax({
-        url: 'js/mocks/remove-contact.json',
+        url: 'js/mocks/remove-person.json',
         data: {
             id: id
         }
     }).done(function (contacts) {
-        console.debug('contact have been removed:', contacts);
+        console.debug('person have been removed:', contacts);
         showContacts(contacts);
     });
 }
@@ -65,15 +65,15 @@ function findContactById(id) {
 function editContact(id) {
     var contact = findContactById(id);
 
-    $('#contact-form .save').show();
-    $('#contact-form .add').hide();
+    $('#person-form .save').show();
+    $('#person-form .add').hide();
 
-    $('#contact-form [name="id"]').val(id);
-    $('#contact-form [name="name"]').val(contact[0]);
-    $('#contact-form [name="phone"]').val(contact[1]);
+    $('#person-form [name="id"]').val(id);
+    $('#person-form [name="name"]').val(contact[0]);
+    $('#person-form [name="phone"]').val(contact[1]);
 }
 
 function resetContact() {
-    $('#contact-form .save').hide();
-    $('#contact-form .add').show();
+    $('#person-form .save').hide();
+    $('#person-form .add').show();
 }

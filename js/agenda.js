@@ -12,24 +12,32 @@ function getRow(lastName, firstName, email) {
     return row;
 }
 
-var contacts = [
-    {lastName:"Pop",    firstName:"Ionel",      email:"b@gm.net"},
-    {lastName:"Alb",    firstName:"Maria",      email:"c@fsd.com"},
-    {lastName:"Ioan",   firstName:"Ion",        email:"d@gm.net"},
-    {lastName:"Marian", firstName:"Laurentiu",  email:"cg@gmd.net"}
-];
 
 
-var agendaTable = document.getElementById("agenda");
-var agendaBody = agendaTable.getElementsByTagName("tbody")[0];
+function showContacts(contacts) {
+    var agendaTable = document.getElementById("agenda");
+    var agendaBody = agendaTable.getElementsByTagName("tbody")[0];
 
 
 
-var contactsHTML = '';
+    var contactsHTML = '';
 
-for(var i = 0; i < contacts.length; i++){
-    var person = contacts[i];
-    contactsHTML += getRow(person.lastName, person.firstName, person.email);
+    for(var i = 0; i < contacts.length; i++){
+        var person = contacts[i];
+        contactsHTML += getRow(person.lastName, person.firstName, person.email);
+    }
+
+    agendaBody.innerHTML = contactsHTML;
+
 }
 
-agendaBody.innerHTML = contactsHTML;
+
+
+
+$.ajax({
+    url: "js/mocks/load-agenda.json",
+    context: document.body
+}).done(function(contacts) {
+    console.debug('loaded contacts', contacts);
+    showContacts(contacts);
+});

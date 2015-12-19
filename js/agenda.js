@@ -13,10 +13,10 @@ function getRow(lastName, firstName, email) {
 }
 
 var contacts = [
-                 ["Pop", "Ionel", "b@gm.net"],
-                 ["Alb", "Maria", "c@fsd.com"],
-                 ["Ioan", "Ion", "d@gm.net"],
-                 ["Marian", "Laurentiu", "cg@gmd.net"]
+    {lastName:"Pop",    firstName:"Ionel",      email:"b@gm.net"},
+    {lastName:"Alb",    firstName:"Maria",      email:"c@fsd.com"},
+    {lastName:"Ioan",   firstName:"Ion",        email:"d@gm.net"},
+    {lastName:"Marian", firstName:"Laurentiu",  email:"cg@gmd.net"}
 ];
 
 
@@ -29,7 +29,7 @@ var contactsHTML = '';
 
 for(var i = 0; i < contacts.length; i++){
     var person = contacts[i];
-    contactsHTML += getRow(person[0], person[1], person[2]);
+    contactsHTML += getRow(person.lastName, person.firstName, person.email);
 }
 
 agendaBody.innerHTML = contactsHTML;

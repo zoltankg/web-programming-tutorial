@@ -6,7 +6,16 @@ function getRow (produs, cantitate) {
                '<td>' + produs + '</td>' +
                '<td>' + cantitate + '</td>' +
                '</tr>';
+}
 
+function showList(shoppingList) {
+    var lista = '';
+    for (var i = 0; i < shoppingList.length; i++) {
+            var produs = shoppingList[i];
+            lista += getRow(produs.nume, produs.cantitate);
+    }
+
+document.getElementsByTagName('tbody')[0].innerHTML = lista;
 }
 
 var shoppingList = [
@@ -15,14 +24,8 @@ var shoppingList = [
     {nume: 'Mere', cantitate: 10}
 ];
 
+showList(shoppingList);
 
-var lista = '';
-for (var i = 0; i < shoppingList.length; i++) {
-        var produs = shoppingList[i];
-        lista += getRow(produs.nume, produs.cantitate);
-}
-
-document.getElementsByTagName('tbody')[0].innerHTML = lista;
 
 
 
